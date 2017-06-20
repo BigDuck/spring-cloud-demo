@@ -1,5 +1,6 @@
 package wupj.service.one.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,9 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/people")
 public class PeopleMsgController {
+    private final Logger logger = Logger.getLogger(getClass());
+
+
     @RequestMapping("/msg")
-    public Object getUserName(){
+    public Object getUserName() {
         return "wupj";
     }
+
 
 }

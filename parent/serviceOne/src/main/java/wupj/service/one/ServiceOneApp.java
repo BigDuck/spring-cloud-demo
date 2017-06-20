@@ -1,7 +1,7 @@
 package wupj.service.one;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -16,6 +16,6 @@ public class ServiceOneApp
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(ServiceOneApp.class,args);
+        new SpringApplicationBuilder(ServiceOneApp.class).web(true).run(args);
     }
 }
