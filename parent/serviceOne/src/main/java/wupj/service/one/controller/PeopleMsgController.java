@@ -14,8 +14,8 @@ public class PeopleMsgController {
 
 
     @RequestMapping("/msg")
-    public Object getUserName() {
-        return "wupj";
+    public Object getUserName(String msg) {
+        return "你好"+msg;
     }
 
 

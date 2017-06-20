@@ -1,25 +1,21 @@
-package com.wupj.service;
+package com.wupj.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * Hello world!
  *
  */
-@SpringBootApplication
 @EnableFeignClients
-@EnableWebMvc
+@SpringBootApplication
 @EnableEurekaClient
-@EnableCircuitBreaker
-public class ServiceTwoApp
+public class FeignApp
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(ServiceTwoApp.class,args);
+        SpringApplication.run(FeignApp.class,args);
     }
 }
