@@ -15,6 +15,9 @@ public class PeopleController {
     private PeopleService peopleService;
     @RequestMapping("/say")
     public String say(){
+        if(true){
+            throw new RuntimeException("异常模拟");
+        }
       return   peopleService.saySomething("xj");
     }
 }

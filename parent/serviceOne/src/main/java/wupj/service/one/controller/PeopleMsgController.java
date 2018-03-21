@@ -17,6 +17,10 @@ public class PeopleMsgController {
     public Object getUserName(String msg) {
         return "你好"+msg;
     }
+    @RequestMapping("/service")
+    public String getService(){
+        return "service-one";
+    }
 
 
 }

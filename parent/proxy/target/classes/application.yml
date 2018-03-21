@@ -9,6 +9,9 @@ server:
   port: 8083
 zuul:
   routes:
-    serviceOne: /service/0/**
-    serviceTwo: /service/1/**
-
+    serviceOne:
+       path: /service/0/**
+       serviceId: ribbonConsumer
+    serviceTwo:
+       path: /service/1/**
+       serviceId: feign
