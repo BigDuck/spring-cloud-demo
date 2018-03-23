@@ -1,11 +1,48 @@
+spring:
+  profiles:
+    active: master
+---
+spring:
+  profiles: master
+  application:
+    name: eurekas
 server:
   port: 8080 # 注册中心占用8080端口
 eureka:
   instance:
     hostname: localhost
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
+      defaultZone: http://${eureka.instance.hostname}:9090/eureka/,http://${eureka.instance.hostname}:10101/eureka/
+---
+spring:
+  profiles: slave1
+  application:
+      name: eurekas
+server:
+  port: 9090
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8080/eureka/,http://${eureka.instance.hostname}:10101/eureka/
+---
+spring:
+  profiles: slave2
+  application:
+      name: eurekas
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8080/eureka/,http://${eureka.instance.hostname}:9090/eureka/
+server:
+  port: 10101

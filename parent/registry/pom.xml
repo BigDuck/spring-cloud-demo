@@ -25,4 +25,54 @@
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
     </dependencies>
+    <build>
+      <!--  <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/application.${build.profile.id}.yml</directory>
+                <filtering>false</filtering>
+            </resource>
+        </resources>-->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+<!--
+    <profiles>
+        &lt;!&ndash;master&ndash;&gt;
+        <profile>
+            <id>master</id>
+            <properties>
+                <build.profile.id>master</build.profile.id>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        &lt;!&ndash;slave1&ndash;&gt;
+        <profile>
+            <id>slave1</id>
+            <properties>
+                <build.profile.id>slave1</build.profile.id>
+            </properties>
+        </profile>
+        &lt;!&ndash;slave2&ndash;&gt;
+        <profile>
+            <id>slave2</id>
+            <properties>
+                <build.profile.id>slave2</build.profile.id>
+            </properties>
+        </profile>
+    </profiles>
+-->
 </project>
