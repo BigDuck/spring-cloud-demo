@@ -1,9 +1,7 @@
 package com.wupj.service.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.wpj.entity.People;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author：WPJ587 2018/3/21 21:34.
@@ -23,15 +21,10 @@ public class PeopleController {
 
     @GetMapping(path = "/say")
     public String say(@RequestParam("msg") String msg) {
-       /* try {
-            // 模拟超时
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
-       /* if (StringUtils.isNotBlank(msg)) {
-            throw new RuntimeException("异常模拟");
-        }*/
         return "say:" + msg;
+    }
+    @GetMapping("/msg/{name}")
+    public People people(@PathVariable("name")String name){
+        return new People(name,1,true,1000d,50f);
     }
 }

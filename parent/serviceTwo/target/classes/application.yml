@@ -10,10 +10,10 @@ eureka:
     instance-id: http://localhost:8082
 server:
   port: 8082 #servic占用8082
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 3000  # feign 超时控制
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000  # feign 超时控制
 serviceTwo:
   ribbon:
-    ReadTimeout: 1000
-    ConnectTimeout: 500
-    MaxAutoRetries: 1  # SR6版本,这里设为1,会重试3次,重试次数还和另外的两个值有关
+    ReadTimeout: 2000
+    ConnectTimeout: 1000
+    MaxAutoRetries: 3  # SR6版本,这里设为1,会重试3次,重试次数还和另外的两个值有关
 

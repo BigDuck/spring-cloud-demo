@@ -10,3 +10,7 @@ eureka:
     instance-id: http://localhost:8084
 server:
   port: 8085
+## 必须添加对hystrix的支持否无法回调函数fallback函数无法生效
+feign:
+  hystrix:
+    enabled: true

@@ -30,8 +30,11 @@ public class MyFilter extends ZuulFilter {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
         Object token = request.getParameter("token");
-
-        if (token ==null){
+        /**
+         * 此处可以进行自定义的一些验证，我觉的黑名单这类的就可以在这边做，如果能够动态改变的话，
+         * 那就可以在被攻击的时候临时屏蔽掉一些请求（感觉可以使用lua脚本试试，虽然我不会写）
+         */
+       /* if (token ==null){
             try {
                 requestContext.setSendZuulResponse(false);
                 requestContext.setResponseStatusCode(401);
@@ -40,7 +43,7 @@ public class MyFilter extends ZuulFilter {
                 e.printStackTrace();
             }
             return null;
-        }
+        }*/
         return null;
     }
 }

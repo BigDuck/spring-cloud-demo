@@ -17,6 +17,7 @@
         <module>rest</module>
         <module>ribbon</module>
         <module>feign</module>
+        <module>commonEntity</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
