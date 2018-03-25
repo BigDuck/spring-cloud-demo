@@ -20,5 +20,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.wupj.cloud</groupId>
+            <artifactId>common-entity</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 </project>
