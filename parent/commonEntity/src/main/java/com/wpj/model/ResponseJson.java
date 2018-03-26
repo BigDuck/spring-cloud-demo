@@ -26,7 +26,7 @@ public class ResponseJson implements Serializable {
         this(code, msg, null);
     }
     public ResponseJson(String msg, Object data) {
-        this(HttpStatus.OK, msg, null);
+        this(HttpStatus.OK, msg, data);
     }
     public ResponseJson(HttpStatus code, String msg, Object data) {
         this.code = code;

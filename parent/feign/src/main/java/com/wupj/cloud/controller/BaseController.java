@@ -9,5 +9,5 @@ import org.slf4j.LoggerFactory;
  * @author wupj on 2018/3/23 10:35.
  */
 public class BaseController {
-    private Logger logger= LoggerFactory.getLogger(this.toString());
+    protected Logger logger= LoggerFactory.getLogger(this.getClass());
 }

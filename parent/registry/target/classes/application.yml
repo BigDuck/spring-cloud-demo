@@ -1,3 +1,4 @@
+# 注册中心统一8000开头
 spring:
   profiles:
     active: master
@@ -7,30 +8,30 @@ spring:
   application:
     name: eurekas
 server:
-  port: 8080 # 注册中心占用8080端口
+  port: 8000 # 注册中心占用8080端口
 eureka:
   instance:
-    hostname: localhost
+    hostname: gxj-master
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:9090/eureka/,http://${eureka.instance.hostname}:10101/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8001/eureka/,http://${eureka.instance.hostname}:8002/eureka/
 ---
 spring:
   profiles: slave1
   application:
       name: eurekas
 server:
-  port: 9090
+  port: 8001
 eureka:
   instance:
-    hostname: localhost
+    hostname: wpj-slave1
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8080/eureka/,http://${eureka.instance.hostname}:10101/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8000/eureka/,http://${eureka.instance.hostname}:8002/eureka/
 ---
 spring:
   profiles: slave2
@@ -38,11 +39,11 @@ spring:
       name: eurekas
 eureka:
   instance:
-    hostname: localhost
+    hostname: wpj-slave2
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8080/eureka/,http://${eureka.instance.hostname}:9090/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8000/eureka/,http://${eureka.instance.hostname}:8001/eureka/
 server:
-  port: 10101
+  port: 8002

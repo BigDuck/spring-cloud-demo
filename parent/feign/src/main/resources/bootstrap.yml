@@ -1,0 +1,28 @@
+#spring:
+#  application:
+#    name: feign
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://gxj-master:8000/eureka/,http://wpj-slave1:8001/eureka/,http://wpj-slave2:8002/eureka/  #注册中心地址
+#  instance:
+#    hostname: localhost
+#    instance-id: http://localhost:8084
+#server:
+#  port: 8200
+### 必须添加对hystrix的支持否无法回调函数fallback函数无法生效
+#feign:
+#  hystrix:
+#    enabled: true
+# git使用中心配置spring:
+# 这边问价你名字要改成bootstrap.yml 要不然好像加载不到config服务器配置的端口
+  cloud:
+    config:
+      label: master
+  spring:
+    cloud:
+      config:
+        uri: http://gxj-master:8600
+        profile: dev
+    application:
+      name: feign

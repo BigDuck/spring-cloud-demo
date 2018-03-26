@@ -1,5 +1,6 @@
 package com.wupj.cloud.controller;
 
+import com.wpj.entity.People;
 import com.wpj.model.ResponseJson;
 import com.wupj.cloud.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +26,14 @@ public class PeopleController extends BaseController{
     public ResponseJson people(@PathVariable("name")String name){
         ResponseJson responseJson=null;
         try {
-            responseJson=new ResponseJson(null,peopleService.findPeople(name));
+            People people = peopleService.findPeople(name);
+            logger.info("用户："+people);
+            responseJson=new ResponseJson(null,people);
         }catch (Exception e){
             responseJson.setCode(HttpStatus.INTERNAL_SERVER_ERROR);
             responseJson.setMsg(e.getMessage());
         }
+        logger.info("结果："+responseJson.toString());
         return responseJson;
     }
 }
