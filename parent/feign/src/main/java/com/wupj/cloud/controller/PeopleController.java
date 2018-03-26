@@ -25,7 +25,7 @@ public class PeopleController extends BaseController{
     public ResponseJson people(@PathVariable("name")String name){
         ResponseJson responseJson=null;
         try {
-            responseJson=new ResponseJson(peopleService.findPeople(name));
+            responseJson=new ResponseJson(null,peopleService.findPeople(name));
         }catch (Exception e){
             responseJson.setCode(HttpStatus.INTERNAL_SERVER_ERROR);
             responseJson.setMsg(e.getMessage());
