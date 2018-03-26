@@ -6,8 +6,8 @@ eureka:
     serviceUrl:
       defaultZone: http://gxj-master:8000/eureka/,http://wpj-slave1:8001/eureka/,http://wpj-slave2:8002/eureka/  #注册中心地址
   instance:
-    hostname: localhost
-    instance-id: http://localhost:8084
+    hostname: gxj-master
+    instance-id: http://gxj-master:8200
 server:
   port: 8200
 ## 必须添加对hystrix的支持否无法回调函数fallback函数无法生效
