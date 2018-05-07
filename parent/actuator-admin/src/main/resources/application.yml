@@ -1,7 +1,6 @@
-# 服务统一8500
 spring:
   application:
-    name: serviceOne
+    name: actuator-admin
   boot:
     admin:
       url: http://gxj-master:10000
@@ -11,10 +10,9 @@ eureka:
       defaultZone: http://gxj-master:8000/eureka/,http://wpj-slave1:8001/eureka/,http://wpj-slave2:8002/eureka/  #注册中心地址
   instance:
     hostname: gxj-master
-    instance-id: http://gxj-master:8400
+    instance-id: http://gxj-master:10000
 server:
-  port: 8400
+  port: 10000
 management:
   security:
     enabled: false
-

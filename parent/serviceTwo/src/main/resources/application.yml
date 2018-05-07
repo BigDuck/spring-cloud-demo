@@ -3,6 +3,9 @@ spring:
     name: serviceTwo
   profiles:
     active: master
+  boot:
+    admin:
+      url: http://gxj-master:10000
 eureka:
   client:
     serviceUrl:
@@ -18,4 +21,3 @@ serviceTwo:
     ReadTimeout: 2000
     ConnectTimeout: 1000
     MaxAutoRetries: 3  # SR6版本,这里设为1,会重试3次,重试次数还和另外的两个值有关
-

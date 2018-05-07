@@ -1,19 +1,23 @@
 spring:
   application:
     name: serviceTwo
+  profiles:
+    active: master
+  boot:
+    admin:
+      url: http://gxj-master:10000
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8080/eureka/  #注册中心地址
+      defaultZone: http://gxj-master:8000/eureka/,http://wpj-slave1:8001/eureka/,http://wpj-slave2:8002/eureka/  #注册中心地址
   instance:
-    hostname: localhost
-    instance-id: http://localhost:8082
+    hostname: gxj-master
+    instance-id: http://gxj-master:8500
 server:
-  port: 8082 #servic占用8082
+  port: 8500 #servic占用8500
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000  # feign 超时控制
 serviceTwo:
   ribbon:
     ReadTimeout: 2000
     ConnectTimeout: 1000
     MaxAutoRetries: 3  # SR6版本,这里设为1,会重试3次,重试次数还和另外的两个值有关
-

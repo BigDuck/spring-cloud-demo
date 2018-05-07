@@ -25,6 +25,6 @@ encrypt:
     alias: config-server
     password: 757671834
     secret: 757671834
-
+# keytool -genkeypair -alias config-server -keyalg RSA -keystore config-server.keystore 然后根据提示生成密钥
 ## http://localhost:8600/decrypt 解密
 ## http://localhost:8600/encrypt 加密

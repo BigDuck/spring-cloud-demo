@@ -1,3 +1,6 @@
+# 加密的那个字符串必须加上单引号，否则可能报错
+#org.yaml.snakeyaml.parser.ParserException: while parsing a block mapping
+
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
